@@ -1,0 +1,6 @@
+termcolor
+cryptography
+validate_email
+py3dns
+requests
+pycrypto
