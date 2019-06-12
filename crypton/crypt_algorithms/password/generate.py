@@ -2,7 +2,7 @@ import re
 import string
 import secrets
 
-from crypt_algorithms.password.check import Checker
+from crypton.crypt_algorithms.password.check import Checker
 
 
 class Generator:

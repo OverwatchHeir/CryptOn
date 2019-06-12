@@ -1,5 +1,5 @@
 from termcolor import colored
-from cli.cli_asymmetric import CliAsymmetric
+from crypton.cli.cli_asymmetric import CliAsymmetric
 
 
 class CliDSA(CliAsymmetric):

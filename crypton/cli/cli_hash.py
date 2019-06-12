@@ -1,7 +1,7 @@
 from termcolor import colored
-import errors
-from cli.cli import Cli
-from crypt_algorithms.hash.sha2 import SHA2
+from crypton import errors
+from crypton.cli.cli import Cli
+from crypton.crypt_algorithms.hash.sha2 import SHA2
 
 
 class CliHash(Cli):

@@ -2,9 +2,9 @@ import argparse
 import os
 from termcolor import colored
 
-import errors
-from crypt_algorithms.password.check import Checker
-from crypt_algorithms.password.generate import Generator
+from crypton import errors
+from crypton.crypt_algorithms.password.check import Checker
+from crypton.crypt_algorithms.password.generate import Generator
 
 checker = Checker()
 generator = Generator()

@@ -9,9 +9,9 @@ from cryptography.hazmat.primitives import serialization as crypto_serialization
 from cryptography.x509.oid import NameOID
 import datetime
 
-from crypt_algorithms.asymmetric.dsa import DSA
-from crypt_algorithms.asymmetric.rsa import RSA
-from crypt_algorithms.asymmetric.ecdsa import ECDSA
+from crypton.crypt_algorithms.asymmetric.dsa import DSA
+from crypton.crypt_algorithms.asymmetric.rsa import RSA
+from crypton.crypt_algorithms.asymmetric.ecdsa import ECDSA
 
 current_file_path = os.getcwd()
 

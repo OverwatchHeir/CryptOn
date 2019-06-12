@@ -1,9 +1,9 @@
 from termcolor import colored
-from cli.cli import Cli
-from crypt_algorithms.asymmetric.dsa import DSA
-from crypt_algorithms.asymmetric.rsa import RSA
-from crypt_algorithms.asymmetric.ecdsa import ECDSA
-import errors
+from crypton.cli.cli import Cli
+from crypton.crypt_algorithms.asymmetric.dsa import DSA
+from crypton.crypt_algorithms.asymmetric.rsa import RSA
+from crypton.crypt_algorithms.asymmetric.ecdsa import ECDSA
+from crypton import errors
 
 
 class CliAsymmetric(Cli):

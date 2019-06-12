@@ -3,7 +3,7 @@ import os
 from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives import hashes
 
-from crypt_algorithms.hash.sha2 import SHA2
+from crypton.crypt_algorithms.hash.sha2 import SHA2
 
 current_file_path = os.getcwd()
 

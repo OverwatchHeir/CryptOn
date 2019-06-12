@@ -2,24 +2,24 @@ import base64
 
 from termcolor import colored
 
-from cli.cli_asymmetric import CliAsymmetric
-from cli.cli_dsa import CliDSA
-from cli.cli_ecdsa import CliECDSA
-from cli.cli_ed25519 import CliED25519
-from cli.cli_hash import CliHash
-from cli.cli_rsa import CliRSA
-from cli.cli_symmetric import CliSymmetric
-from cli.cli_x25519 import CliX25519
-from cli.cli_x509 import CliX509
-from crypt_algorithms.asymmetric.X509 import X509
-from crypt_algorithms.asymmetric.dsa import DSA
-from crypt_algorithms.asymmetric.ecdsa import ECDSA
-from crypt_algorithms.asymmetric.ed25519 import ED25519
-from crypt_algorithms.asymmetric.rsa import RSA
-from crypt_algorithms.asymmetric.x25519 import X25519
-from crypt_algorithms.hash.sha2 import SHA2
-from crypt_algorithms.hash.sha3 import SHA3
-from crypt_algorithms.symmetric.aes import Aes
+from crypton.cli.cli_asymmetric import CliAsymmetric
+from crypton.cli.cli_dsa import CliDSA
+from crypton.cli.cli_ecdsa import CliECDSA
+from crypton.cli.cli_ed25519 import CliED25519
+from crypton.cli.cli_hash import CliHash
+from crypton.cli.cli_rsa import CliRSA
+from crypton.cli.cli_symmetric import CliSymmetric
+from crypton.cli.cli_x25519 import CliX25519
+from crypton.cli.cli_x509 import CliX509
+from crypton.crypt_algorithms.asymmetric.X509 import X509
+from crypton.crypt_algorithms.asymmetric.dsa import DSA
+from crypton.crypt_algorithms.asymmetric.ecdsa import ECDSA
+from crypton.crypt_algorithms.asymmetric.ed25519 import ED25519
+from crypton.crypt_algorithms.asymmetric.rsa import RSA
+from crypton.crypt_algorithms.asymmetric.x25519 import X25519
+from crypton.crypt_algorithms.hash.sha2 import SHA2
+from crypton.crypt_algorithms.hash.sha3 import SHA3
+from crypton.crypt_algorithms.symmetric.aes import Aes
 
 
 def symmetric():

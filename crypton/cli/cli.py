@@ -1,5 +1,5 @@
 from termcolor import colored
-import errors
+from crypton import errors
 
 
 class Cli:

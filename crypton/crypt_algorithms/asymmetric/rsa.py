@@ -7,7 +7,7 @@ from cryptography.hazmat.backends import default_backend as crypto_default_backe
 from cryptography.hazmat.primitives.serialization import load_pem_private_key, load_pem_public_key
 from cryptography.hazmat.primitives.asymmetric import padding
 
-from crypt_algorithms.symmetric.aes import Aes
+from crypton.crypt_algorithms.symmetric.aes import Aes
 
 current_file_path = os.getcwd()
 

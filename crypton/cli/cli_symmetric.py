@@ -1,7 +1,7 @@
 from termcolor import colored
-import errors
-from cli.cli import Cli
-from crypt_algorithms.symmetric.aes import Aes
+from crypton import errors
+from crypton.cli.cli import Cli
+from crypton.crypt_algorithms.symmetric.aes import Aes
 
 
 class CliSymmetric(Cli):

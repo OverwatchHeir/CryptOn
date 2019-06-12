@@ -1,6 +1,6 @@
 from termcolor import colored
-import errors
-from cli.cli_asymmetric import CliAsymmetric
+from crypton import errors
+from crypton.cli.cli_asymmetric import CliAsymmetric
 
 
 class CliX25519(CliAsymmetric):

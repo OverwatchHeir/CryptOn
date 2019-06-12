@@ -1,10 +1,10 @@
 from termcolor import colored
 from validate_email import validate_email
-from cli.cli_asymmetric import CliAsymmetric
-from crypt_algorithms.asymmetric.dsa import DSA
-from crypt_algorithms.asymmetric.ecdsa import ECDSA
-from crypt_algorithms.asymmetric.rsa import RSA
-import errors
+from crypton.cli.cli_asymmetric import CliAsymmetric
+from crypton.crypt_algorithms.asymmetric.dsa import DSA
+from crypton.crypt_algorithms.asymmetric.ecdsa import ECDSA
+from crypton.crypt_algorithms.asymmetric.rsa import RSA
+from crypton import errors
 
 
 class CliX509(CliAsymmetric):
