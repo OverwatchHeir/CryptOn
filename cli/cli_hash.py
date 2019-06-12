@@ -16,10 +16,10 @@ class CliHash(Cli):
     def display_menu(self):
         print(colored("\r\n[*] Here you will have to choose between the available options. Select from menu:\n",
                       'green'))
-        print(colored("      1) SHA3 Hash", 'green'))
-        print(colored("      2) SHA2 Hash", 'green'))
+        print(colored("     [1] SHA3 Hash", 'green'))
+        print(colored("     [2] SHA2 Hash", 'green'))
         print()
-        print(colored("      0) Exit the Hash Cryptography", 'green'))
+        print(colored("     [0] Exit the Hash Cryptography", 'green'))
         print()
 
     def get_option(self, prompt):

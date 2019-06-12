@@ -13,11 +13,11 @@ class CliED25519(CliAsymmetric):
     def display_menu(self):
         print(colored("\r\n[*] Here you will have to choose between the available options. Select from menu:\n",
                       'green'))
-        print(colored("      1) ED25519 key pair", 'green'))
-        print(colored("      2) ED25519 sign", 'green'))
-        print(colored("      3) ED25519 verify", 'green'))
+        print(colored("     [1] ED25519 key pair", 'green'))
+        print(colored("     [2] ED25519 sign", 'green'))
+        print(colored("     [3] ED25519 verify", 'green'))
         print()
-        print(colored("      0) Exit the ED25519 Cryptography", 'green'))
+        print(colored("     [0] Exit the ED25519 Cryptography", 'green'))
         print()
 
     def get_option(self, prompt):

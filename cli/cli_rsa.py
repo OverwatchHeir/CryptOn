@@ -12,14 +12,14 @@ class CliRSA(CliAsymmetric):
     def display_menu(self):
         print(colored("\r\n[*] Here you will have to choose between the available options. Select from menu:\n",
                       'green'))
-        print(colored("      1) RSA key pair", 'green'))
-        print(colored("      2) RSA key pair for SSH Auth", 'green'))
-        print(colored("      3) RSA sign", 'green'))
-        print(colored("      4) RSA verify", 'green'))
-        print(colored("      5) RSA encryption (PGP principles)", 'green'))
-        print(colored("      6) RSA decryption (PGP principles)", 'green'))
+        print(colored("     [1] RSA key pair", 'green'))
+        print(colored("     [2] RSA key pair for SSH Auth", 'green'))
+        print(colored("     [3] RSA sign", 'green'))
+        print(colored("     [4] RSA verify", 'green'))
+        print(colored("     [5] RSA encryption (PGP principles)", 'green'))
+        print(colored("     [6] RSA decryption (PGP principles)", 'green'))
         print()
-        print(colored("      0) Exit the RSA Cryptography", 'green'))
+        print(colored("     [0] Exit the RSA Cryptography", 'green'))
         print()
 
     def get_option(self, prompt):

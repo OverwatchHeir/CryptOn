@@ -15,8 +15,9 @@ class Cli:
             +#+        +#+    +#+    +#+    +#+           +#+    +#+    +#+ +#+  +#+#+# 
             #+#    #+# #+#    #+#    #+#    #+#           #+#    #+#    #+# #+#   #+#+# 
              ########  ###    ###    ###    ###           ###     ########  ###    #### """ + '\n'
-        self.propass_cli = colored("[CRYPTON]> ", 'blue')
-        self.gen_cli = colored("[CRYPTON::GEN]> ", 'blue')
+
+        self.crypton_cli = colored("[CRYPTON]> ", 'blue')
+        self.gen_cli = colored("[CRYPTON::GENERATOR]> ", 'blue')
         self.check_cli = colored("[CRYPTON::CHECK]> ", 'blue')
         self.options = [0, 1, 2, 3, 4, 5]
 
@@ -30,13 +31,13 @@ class Cli:
         self.display_banner()
         print(colored("\r\n[*] Here you will have to choose between the available options. Select from menu:\n",
                       'green'))
-        print(colored("      1) Secure passwords generation", 'green'))
-        print(colored("      2) Passwords strength & security checks", 'green'))
-        print(colored("      3) Symmetric cryptography", 'green'))
-        print(colored("      4) Asymmetric cryptography", 'green'))
-        print(colored("      5) Hash Algorithms", 'green'))
+        print(colored("     [1] Secure passwords generation", 'green'))
+        print(colored("     [2] Passwords strength & security checks", 'green'))
+        print(colored("     [3] Symmetric cryptography", 'green'))
+        print(colored("     [4] Asymmetric cryptography", 'green'))
+        print(colored("     [5] Hash Algorithms", 'green'))
         print()
-        print(colored("      0) Exit the CryptOn tool", 'green'))
+        print(colored("     [0] Exit the CryptOn tool", 'green'))
         print()
 
     def get_option(self, prompt):
