@@ -263,9 +263,9 @@ def _asymmetric_x509():
 
     while option != 0:
         if option == 1:
-            key_size, algorithm, subject, alternative, email, org, org_unit, cert_file_path = cli.display_ss_certificate()
+            key_size, algorithm, subject, alternative, email, org, org_unit, cert_path = cli.display_ss_certificate()
 
-            if len(cert_file_path) == 0:
+            if len(cert_path) == 0:
                 X509(key_size=key_size).file_x509(cert_type='ss',
                                                   algorithm=algorithm,
                                                   subject_name=subject,
@@ -282,7 +282,7 @@ def _asymmetric_x509():
                                                   email=email,
                                                   org=org,
                                                   org_unit=org_unit,
-                                                  file_path=cert_file_path)
+                                                  file_path=cert_path)
 
             print(colored('\n  Self signed certificate and key successfully created! \n ', 'green'))
 

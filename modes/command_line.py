@@ -1,6 +1,8 @@
 import argparse
 import os
 from termcolor import colored
+
+import errors
 from crypt_algorithms.password.check import Checker
 from crypt_algorithms.password.generate import Generator
 
@@ -18,14 +20,8 @@ def create_parser():
                         action="store_true",
                         help="See script version")
 
-    parser.add_argument("-i",
-                        "--interactive",
-                        dest="interactive",
-                        action="store_true",
-                        help="Run script in interactive mode")
-
     parser.add_argument("-g",
-                        "--generator",
+                        "--generate-password",
                         nargs='*',
                         metavar=('length', 'number'),
                         type=int,
@@ -33,38 +29,16 @@ def create_parser():
                              " // Defaults: length (20) - number of passwords (1)")
 
     parser.add_argument("-c",
-                        "--check",
+                        "--check-password",
                         type=str,
                         metavar='password',
                         help="Passwords strength & security checks")
 
-    parser.add_argument("-r",
-                        "--rsa",
-                        type=int,
-                        nargs='*',
-                        metavar='key_size',
-                        help="RSA key pair // Defaults: bits (2048)")
-
-    parser.add_argument("-s",
-                        "--ssh",
-                        nargs='*',
-                        type=int,
-                        metavar='key_size',
-                        help="SSH Identity key pair // Defaults: bits (2048)")
-
-    parser.add_argument("-d",
-                        "--dsa",
-                        nargs='*',
-                        type=int,
-                        metavar='key_size',
-                        help="DSA key pair // Defaults: bits (2048)")
-
-    parser.add_argument("-e",
-                        "--ecdsa",
-                        nargs='*',
-                        type=int,
-                        metavar='key_size',
-                        help="EDSA key pair // Defaults: bits (256)")
+    parser.add_argument("-i",
+                        "--interactive",
+                        dest="interactive",
+                        action="store_true",
+                        help="Run script in interactive mode")
 
     return parser, parser.parse_args()
 
@@ -77,6 +51,23 @@ def show_passwords(length, number):
               + '\n')
 
 
-def show_check(password):
-    print('\n' + colored('Entropy : ', 'green') + colored(str(checker.entropy(len(password))) + ' bits', 'white'))
-    print(checker.strength(password) + '\n')
+def generate_password(parser, args):
+    if len(args) == 0:
+        show_passwords(16, 1)
+
+    elif len(args) == 2:
+        length = args[0]
+        number = args[1]
+
+        if length < 16 or number < 1:
+            print(errors.value)
+        else:
+            show_passwords(length, number)
+
+    elif len(args) != 2:
+        parser.error('expected 2 arguments')
+
+
+def check_password(args):
+    print('\n' + colored('Entropy : ', 'green') + colored(str(checker.entropy(len(args))) + ' bits', 'white'))
+    print(checker.strength(args) + '\n')
