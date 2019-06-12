@@ -1,5 +1,8 @@
+import re
 import string
-import random
+import secrets
+
+from crypt_algorithms.password.check import Checker
 
 
 class Generator:
@@ -8,4 +11,9 @@ class Generator:
         self.alphabet = string.ascii_lowercase + string.digits + string.punctuation + string.ascii_uppercase
 
     def secure_password(self, length):
-        return ''.join(random.SystemRandom().choice(self.alphabet) for _ in range(length))
+        password = ''.join(secrets.choice(self.alphabet) for _ in range(length))
+
+        while not re.match(Checker().secure_regex, password):
+            password = ''.join(secrets.choice(self.alphabet) for _ in range(length))
+
+        return password
