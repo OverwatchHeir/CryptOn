@@ -1,14 +1,17 @@
-ProPass
+CryptOn
 ----------
 
-ProPass is an open-source tool that allows :
+CryptOn is an open-source tool that allows :
 
    - Secure passwords generation based on [OWASP criteria].
    - Passwords strength & security checks based on [OWASP Guidelines for enforcing secure passwords].
-   - RSA key pair generation.
-   - SSH key pair generation (using RSA).
-   - ECDSA key pair generation.
-   - GPG tools & features ( only in interactive mode)
+   - Symmetric cryptography*
+   - Asymmetric cryptography*
+   - Hash Algorithms*
+   
+   
+   _*only in interactive mode_
+
 
 About
 -----------------
@@ -24,41 +27,45 @@ It is usual in the computer industry to specify password strength in terms of in
 in bits and is a concept from information theory. Instead of the number of guesses needed to find the password 
 with certainty, the base-2 logarithm of that number is given, which is the number of "entropy bits" in a password.
 
-**Asymmetric Cryptography**
+**Cryptography**
 
-We can also use cryptography with authentication. Therefore, we have asymmetric public-private key cryptosystems. Two of the best-known uses of 
-public key cryptography are:
+Cryptography (or crypto) is one of the more advanced topics of information security, and one whose understanding 
+requires the most schooling and experience. It is difficult to get right because there are many approaches to 
+encryption, each with advantages and disadvantages that need to be thoroughly understood by web solution architects 
+and developers. In addition, serious cryptography research is typically based in advanced mathematics and number theory,
+providing a serious barrier to entry.
 
-   - Public key encryption, in which a message is encrypted with a recipient's public key. The message cannot be 
-     decrypted by anyone who does not possess the matching private key, who is thus presumed to be the owner of that 
-     key and the person associated with the public key. This is used in an attempt to ensure confidentiality.
-     
-   - Digital signatures, in which a message is signed with the sender's private key and can be verified by 
-     anyone who has access to the sender's public key. This verification proves that the sender had access to the 
-     private key, and therefore is likely to be the person associated with the public key. This also ensures that 
-     the message has not been tampered with, as a signature is mathematically bound to the message it originally was 
-     made with, and verification will fail for practically any other message, no matter how similar to the original 
-     message.
-     
-There are public-private key cryptosystems algorithms such as [RSA] and [ECDSA].
+The proper and accurate implementation of cryptography is extremely critical to its efficacy. A small mistake in 
+configuration or coding will result in removing a large degree of the protection it affords and rending the crypto 
+implementation useless against serious attacks. A good understanding of crypto is required to be able to discern 
+between solid products and snake oil. The inherent complexity of crypto makes it easy to fall for fantastic claims 
+from vendors about their product. Typically, these are “a breakthrough in cryptography” or “unbreakable” or provide 
+"military grade" security. If a vendor says "trust us, we have had experts look at this,” chances are they weren't 
+experts!
 
-RSA and ECDSA are well-regarded. They are considered quite secure and is commonly used in:
+Cryptography at its very core is math. Pure, simple, undiluted math. Math created the algorithms that are the basis 
+for all encryption. And encryption is the basis for privacy and security on the internet. So, we love math. Even if it 
+is a tad complicated. With that being said, algorithms have to be built to work against computers. As computers get 
+smarter, algorithms become weaker and we must therefore look at new solutions. This is how cryptography evolves to beat 
+the bad guys. So how is it done? First you need to build a cryptosystem that is both confidential and authentic. 
+This cryptosystem is responsible for creating the key(s) that will be used to encrypt and then decrypt the data or 
+message. A number of signing algorithms have been created over the years to create these keys, some of which have since 
+been deprecated as computing power has increased.
+
+It is commonly used in:
 
    - SSH Authentication
    - SSL Certficates
    - VPN Tunnel Encryption
    - Email & Messaging Encryption
    - Etc
-
-**GPG or GnuPG**
-
-GPG or GnuPG is a complete and free implementation of the OpenPGP standard as defined by RFC4880 (also known as PGP). 
-It allows you to encrypt and sign your data and communications; it features a versatile key management system, along 
-with access modules for all kinds of public key directories. [What is encryption?]
-
-Using encryption helps to protect your privacy and the privacy of the people you communicate with. Encryption makes 
-life difficult for bulk surveillance systems. GnuPG is one of the tools that Snowden used to uncover the secrets of 
-the NSA. If you want more information you can look up at [GnuPG] or [How GPG encrypt and decrypt works?].
+   
+ If you want more information about, try this glossaries and guides:
+ 
+   - [cryptographic algorithms]
+   - [cryptographic protocols]
+   - [PGP in email]
+   - [New Elliptic Curve]
 
 Requirements
 ----------
@@ -66,8 +73,8 @@ Requirements
   - pip
   - termcolor
   - cryptography
-  - ecdsa
-  - python-gnupg
+  - pycrypto
+  - requests
   - validate_email
   - py3dns
 
@@ -81,26 +88,24 @@ First of all, we would python 3, pip and gnupg installed in our computer.
 
  ```
  $ apt-get install python3-pip
- $ apt-get install gnupg
  ```
  
 **MacOS**
  ```
  $ brew install python3
  $ brew install pip
- $ brew install gnupg
  ```
  **Windows**
  
- Download python 3 and pip from [python webpage] and gnupg from [Gpg4win].
+Download python 3 and pip from [python webpage].
  
  
 Secondly, we install the tool using the traditional installation from **pip**
 
  ```
  $ easy_install3 -U pip # you have to install python3-setuptools , update pip
- $ pip3 install propass
- $ propass # installed successfully
+ $ pip3 install crypton
+ $ crypton # installed successfully
 ```
 
 Usage
@@ -108,25 +113,20 @@ Usage
 
 **Run**
 ```
-$ propass
+$ crypton
 ```
 
 **Options**
 ```
 optional arguments:
   -h, --help            show this help message and exit
-  -i, --interactive     Run script in interactive mode
-  -g [length [number ...]], --generator [length [number ...]]
+  -v, --version         See script version
+  -g [length [number ...]], --generate-password [length [number ...]]
                         Secure passwords generation // Defaults: length (20) -
                         number of passwords (1)
-  -c password, --check password
+  -c password, --check-password password
                         Passwords strength & security checks
-  -r [key_size [key_size ...]], --rsa [key_size [key_size ...]]
-                        RSA key pair // Defaults: bits (2048)
-  -s [key_size [key_size ...]], --ssh [key_size [key_size ...]]
-                        SSH Identity key pair // Defaults: bits (2048)
-  -e [key_size [key_size ...]], --ecdsa [key_size [key_size ...]]
-                        ECDSA key pair // Defaults: bits (256)
+  -i, --interactive     Run script in interactive mode
 
 ```
 
@@ -135,19 +135,16 @@ optional arguments:
 IN SOME CASES, if your password contains the special characters you may have problems when parsing. That's because of 
 your shell. You should type ``` \ ``` before each special character in the password.
 
-If you want to use the GPG features from the command line, use your native ```gpg``` command in a terminal.
 
 Contributing
 ------------
 For bug reports or enhancements, please open an [issue] here.
 
 [OWASP criteria]: https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Implement_Proper_Password_Strength_Controls
-[issue]: https://github.com/OverwatchHeir/ProPass/issues
+[issue]: https://github.com/OverwatchHeir/CryptOn/issues
 [python webpage]: https://www.python.org
 [OWASP Guidelines for enforcing secure passwords]: https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Implement_Proper_Password_Strength_Controls
-[ECDSA]: https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet
-[RSA]: https://www.di-mgt.com.au/rsa_alg.html
-[GnuPG]: https://gnupg.org/index.html
-[What is encryption?]:https://www.golinuxcloud.com/tutorial-encrypt-decrypt-sign-file-gpg-key-linux/
-[How GPG encrypt and decrypt works?]:https://www.golinuxcloud.com/tutorial-encrypt-decrypt-sign-file-gpg-key-linux/
-[Gpg4win]: https://www.gpg4win.org/
+[New Elliptic Curve]: https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet
+[PGP in email]:https://www.youtube.com/watch?v=hbkB_jNG-zE
+[cryptographic algorithms]: https://www.globalsign.com/en/blog/glossary-of-cryptographic-algorithms/
+[cryptographic protocols]: https://dwheeler.com/secure-programs/Secure-Programs-HOWTO/crypto.html
