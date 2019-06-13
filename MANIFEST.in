@@ -1,2 +1,2 @@
 
-include crypton/wordlist.txt
+include crypton/crypt_algorithms/password/wordlist.txt

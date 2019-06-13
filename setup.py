@@ -4,6 +4,8 @@
 #                Installation from pip or easy_install
 
 from codecs import open
+
+import setuptools
 from setuptools import setup
 
 with open("README.md", "r") as file:
@@ -11,7 +13,7 @@ with open("README.md", "r") as file:
 
 setup(
     name='crypton',
-    version='1.0.2',
+    version='1.0.0',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/OverwatchHeir/CryptOn.git',
@@ -22,14 +24,14 @@ setup(
     install_requires=[
         'termcolor',
         'cryptography',
-        'pycrypto',
+        'pycryptodomex',
         'validate_email',
         'py3dns',
         'requests'
     ],
-    packages=['crypton'],
+    packages=setuptools.find_packages(),
     include_package_data=True,
-    data_files=['crypton/wordlist.txt'],
+    data_files=['crypton/crypt_algorithms/password/wordlist.txt'],
     classifiers=[
         'Topic :: Utilities',
         'Natural Language :: English',

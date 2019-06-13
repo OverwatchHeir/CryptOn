@@ -1,9 +1,5 @@
 from crypton.cli.cli import Cli
-from crypton.modes import command_line, interactive_mode
-
-
-# ProPass Run
-#
+from crypton.modes import interactive_mode, command_line
 
 # Interactive mode
 
