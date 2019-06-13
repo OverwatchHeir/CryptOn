@@ -21,7 +21,7 @@ About
 Passwords are a real security threat. Impossible-to-crack passwords are complex with multiple types of 
 characters (numbers, letters, and symbols). 
 So if you want to safeguard your personal info and assets, creating secure passwords is a big first step and 
-ProPass will help you to achieve it.
+CryptOn will help you to achieve it.
 
 It is usual in the computer industry to specify password strength in terms of information entropy which is measured 
 in bits and is a concept from information theory. Instead of the number of guesses needed to find the password 
