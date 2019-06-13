@@ -1,9 +1,9 @@
 import base64
 import binascii
-from Crypto.Cipher import AES
-from Crypto import Random
-from Crypto.Protocol.KDF import PBKDF2
-from Crypto.Util import Counter
+from Cryptodome import Random
+from Cryptodome.Cipher import AES
+from Cryptodome.Protocol.KDF import PBKDF2
+from Cryptodome.Util import Counter
 from cryptography.hazmat.primitives.padding import PKCS7
 
 unpad = lambda s: s[:-ord(s[len(s) - 1:])]
