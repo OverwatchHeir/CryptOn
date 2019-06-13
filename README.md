@@ -73,7 +73,7 @@ Requirements
   - pip
   - termcolor
   - cryptography
-  - pycrypto
+  - pycryptodomex
   - requests
   - validate_email
   - py3dns
@@ -82,22 +82,25 @@ Requirements
 Installation
 -------------
 
-First of all, we would python 3, pip and gnupg installed in our computer.
+First of all, we would python 3, pip and openssl installed in our computer.
 
 **Linux**
 
  ```
  $ apt-get install python3-pip
+ $ apt-get install openssl
  ```
  
 **MacOS**
  ```
  $ brew install python3
  $ brew install pip
+ $ brew install openssl
+ 
  ```
  **Windows**
  
-Download python 3 and pip from [python webpage].
+Download python 3 and pip from [python webpage] and openssl from [openssl webpage].
  
  
 Secondly, we install the tool using the traditional installation from **pip**
@@ -154,6 +157,7 @@ For bug reports or enhancements, please open an [issue] here.
 [OWASP criteria]: https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Implement_Proper_Password_Strength_Controls
 [issue]: https://github.com/OverwatchHeir/CryptOn/issues
 [python webpage]: https://www.python.org
+[openssl webpage]:https://slproweb.com/products/Win32OpenSSL.html
 [OWASP Guidelines for enforcing secure passwords]: https://www.owasp.org/index.php/Authentication_Cheat_Sheet#Implement_Proper_Password_Strength_Controls
 [New Elliptic Curve]: https://blog.cloudflare.com/ecdsa-the-digital-signature-algorithm-of-a-better-internet
 [PGP in email]:https://www.youtube.com/watch?v=hbkB_jNG-zE
