@@ -138,8 +138,6 @@ optional arguments:
 IN SOME CASES, if your password contains the special characters you may have problems when parsing. That's because of 
 your shell. You should type ``` \ ``` before each special character in the password.
 
-1
-
 For macOS users maybe you need to setup these settings:
 
  ```
