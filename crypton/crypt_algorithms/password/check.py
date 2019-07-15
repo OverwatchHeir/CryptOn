@@ -30,7 +30,7 @@ class Checker:
             return False
 
     def strength(self, password):
-        if re.match(self.secure_regex, password):
+        if re.match(self.secure_regex, password) and len(password) >= 15:
             result = colored("\nSECURE", 'green')
         else:
             result = colored("\nUNSECURE: ", 'red')
